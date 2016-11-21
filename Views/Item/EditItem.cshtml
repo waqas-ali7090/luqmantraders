@@ -1,0 +1,155 @@
+﻿@model RahatWebApplication.ViewModels.ItemViewModel
+
+<header id="header-nav" role="banner">
+    <div id="navbar" class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="~/Images/base/logo.png" style="height: 26px" /> <span>MY THEME</span>
+            </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-admin flot-nav">
+                <li><a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out color-red"></i> Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<br />
+<br />
+<br />
+<br />
+
+@using (@Html.BeginForm("EditItem", "Item", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.5s">
+                <div class="text-center">
+                    <h1>
+                        <i class="fa fa-user small-icons bk-color-black"></i>Edit Item
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        @Html.HiddenFor(m => m.Item.Id)
+        @Html.HiddenFor(m => m.Item.Photo)
+        @Html.ValidationSummary(true)
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                <div class="text-left">
+                    <img src="@Url.Content(Model.Item.Photo)" height="40" width="40" id="imgpreview" class="img-thumbnail img-circle">
+                    @Html.Label("Select Photo")
+                    @Html.TextBoxFor(m => m.Item.ImageUpload, new {@type = "file", @id="itemimg", accept = "image/*"})
+                    <br/>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                <div class="text-left">
+                    @Html.LabelFor(m => m.Item.Name)
+                    @Html.TextBoxFor(m => m.Item.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Item.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                <div class="text-left">
+                    @Html.LabelFor(m => m.Item.Price)
+                    @Html.TextBoxFor(m => m.Item.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Item.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                <div class="text-left">
+                    @Html.LabelFor(m => m.Item.Category)
+                    @Html.TextBoxFor(m => m.Item.Category, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                <div class="text-left">
+                    @Html.LabelFor(m => m.Item.Discount)
+                    @Html.TextBoxFor(m => m.Item.Discount, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                <div class="text-left">
+                    @Html.LabelFor(m => m.Item.Description)
+                    @Html.TextAreaFor(m => m.Item.Description, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-info" style="margin-top: 17px">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#itemimg").change(function () {
+                var content = $("#itemimg").val();
+                var contentType = content.substr(content.indexOf(".") + 1);
+                switch (contentType) {
+                    case 'gif':
+                    case 'jpg':
+                    case 'jpeg':
+                    case 'png':
+                    case 'tif':
+                    case 'bmp':
+                    case 'GIF':
+                    case 'JPG':
+                    case 'JPEG':
+                    case 'PNG':
+                    case 'TIF':
+                    case 'BMP':
+
+                        break;
+                    default:
+                        {
+                            document.getElementById("fileError").innerHTML = "File format not supported.!";
+                        }
+                }
+
+            });
+
+            function readPictureURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imgpreview').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#itemimg").change(function () {
+                readPictureURL(this);
+        });
+        });
+    </script>
+}

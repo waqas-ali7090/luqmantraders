@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <link rel="shortcut icon" type="image/png" href="~/Images/base/logo.png" sizes="32x32">
+    <title>My theme</title>
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--BOOTSTRAP MAIN STYLES -->
+    @Styles.Render("~/Content/css/baseCSS")
+    @Styles.Render("~/Content/DataTables");
+</head>
+<body>
+
+    @RenderBody()
+    <hr />
+    <!--START FOOTER SECTION -->
+    <footer>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+
+                &copy; @DateTime.Now.Year www.LuqmanTraders.com | All Rights Reserved
+
+            </div>
+        </div>
+    </footer>
+    <!--END FOOTER SECTION -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
+    @Scripts.Render("~/Script/js/jquery")
+    @Scripts.Render("~/Script/js/baseJS")
+
+    <script src="~/scripts/custom.js"></script>
+    @Scripts.Render("~/Scripts/DataTables")
+    @RenderSection("scripts", false)
+</body>
+
+</html>

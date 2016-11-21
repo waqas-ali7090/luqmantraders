@@ -1,0 +1,126 @@
+﻿
+@model RahatWebApplication.ViewModels.ItemViewModel
+
+<header id="header-nav" role="banner">
+    <div id="navbar" class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><i class="fa fa-smile-o"></i>MY THEME</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-admin flot-nav">
+                <li><a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out color-red"></i> Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<br />
+<br />
+<br />
+
+<section class="carousel">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.5s">
+            <div class="text-center">
+                <h1>
+                    <i class="fa fa-wheelchair small-icons bk-color-black"></i>Items
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="well well-sm sitefont">
+            <div class="row">
+                <div class="col-md-3" style="margin-left: 10px">
+                    <input id="tableSearch" type="text" name="search" class="form-control sitefont" placeholder="Enter text to search" />
+                    <i class="glyphicon glyphicon-search iconright"></i>
+                </div>
+                <div class="text-right" style="margin-right: 25px">@Html.ActionLink("Add New", "CreateItem", "Item", null, new { @class = "btn btn-primary fa fa-plus" })</div>
+            </div>
+
+            <div class="items">
+                <div class="item title">
+                    <table id='items' class="table table-hover table-responsive dataTable">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <strong>Image</strong>
+                                </th>
+                                <th>
+                                    <strong>Name</strong>
+                                </th>
+                                <th>
+                                    <strong>Price</strong>
+                                </th>
+                                <th>
+                                    <strong>Category</strong>
+                                </th>
+                                <th>
+                                    <strong>Discount</strong>
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td><img src="@Url.Content(item.Photo)" class="img-circle img-thumbnail" style="width: 35px; height: 35px" /></td>
+                                    <td>@Html.DisplayFor(m => item.Name)</td>
+                                    <td>@Html.DisplayFor(m => item.Price)</td>
+                                    <td>@Html.DisplayFor(m => item.Category)</td>
+                                    <td>@Html.DisplayFor(m => item.Discount)</td>
+                                    <td class="sitefont text-right">
+                                        @Html.ActionLink(" Edit", "EditItem", new { id = item.Id }, new { @class = "btn btn-warning fa fa-edit" })
+                                        @Html.ActionLink(" Delete", "DeleteItem", new { id = item.Id }, new { @class = "btn btn-danger fa fa-trash-o" })
+                                    </td>
+                                </tr>
+                                @*<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js">
+                                        $(document).ready(function () {
+                                            var itemd = item.Photo;
+                                            $("#itemimg").setAttribute('src', item.Photo);
+                                        })
+                                    </script>*@
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+
+        user = $("#items").DataTable({
+
+            //pagination of datatable
+            'paging': true,
+            //Hiding datatable UI
+            'sDom': ''
+        });
+
+        $("#tableSearch").keyup(function () {
+            //Clientside searching
+            var input = $('#tableSearch').val();
+            var table = $('#items').DataTable();
+            table.columns().every(function () {
+                var searchinput = input;
+                if (searchinput.search() !== this.value) {
+                    table.search(input);
+                    table.draw();
+                }
+            });
+        }).keyup();
+    </script>
+}

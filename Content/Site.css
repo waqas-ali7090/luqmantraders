@@ -1,0 +1,49 @@
+﻿.sitefont {
+    font-family: 'Open Sans', sans-serif !important;
+}
+.iconright {
+    position: relative !important;
+    top: -25px !important;
+    margin-left: 235px !important;
+}
+
+
+.navbar-default .navbar-admin > li > a {
+  color: #777777;
+}
+
+.navbar-default .navbar-admin > li > a:hover,
+.navbar-default .navbar-admin > li > a:focus {
+  color: #333333;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-admin > .active > a,
+.navbar-default .navbar-admin > .active > a:hover,
+.navbar-default .navbar-admin > .active > a:focus {
+  color: #555555;
+  background-color: #e7e7e7;
+}
+
+#slide-head {
+    
+    background-image: url('../Images/Items/Chrysanthemum.jpg');
+}
+
+.navbar-default .navbar-admin > .disabled > a,
+.navbar-default .navbar-admin > .disabled > a:hover,
+.navbar-default .navbar-admin > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+
+.navbar-admin {
+  margin: 7.5px -15px;
+}
+
+.navbar-admin > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+    color: white !important;
+}
