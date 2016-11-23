@@ -44,10 +44,11 @@
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
             <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
                 <div class="text-left">
-                    <img src="@Url.Content(Model.Item.Photo)" height="40" width="40" id="imgpreview" class="img-thumbnail img-circle">
+
                     @Html.Label("Select Photo")
-                    @Html.TextBoxFor(m => m.Item.ImageUpload, new {@type = "file", @id="itemimg", accept = "image/*"})
-                    <br/>
+                    @Html.TextBoxFor(m => m.Item.ImageUpload, new { @type = "file", @id = "itemimg", style = "display: inline-block" })
+                    <img src="@Url.Content(Model.Item.Photo)" height="40" width="40" id="imgpreview" class="img-thumbnail">
+                    <br />
                 </div>
 
             </div>
@@ -149,7 +150,7 @@
             }
             $("#itemimg").change(function () {
                 readPictureURL(this);
-        });
+            });
         });
     </script>
 }

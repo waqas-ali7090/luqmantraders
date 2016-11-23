@@ -35,10 +35,12 @@
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
     @Scripts.Render("~/Script/js/jquery")
     @Scripts.Render("~/Script/js/baseJS")
+    @Scripts.Render("~/Script/jqueryvalidate")
 
-    <script src="~/scripts/custom.js"></script>
+    
     @Scripts.Render("~/Scripts/DataTables")
     @RenderSection("scripts", false)
+    <script src="~/scripts/custom.js"></script>
 </body>
 
 </html>

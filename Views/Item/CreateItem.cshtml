@@ -1,5 +1,9 @@
 ﻿@model RahatWebApplication.ViewModels.ItemViewModel
-
+@{
+    ViewBag.Title = "Create Item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.EnableClientValidation(true);
+}
 <header id="header-nav" role="banner">
     <div id="navbar" class="navbar navbar-default">
         <div class="navbar-header">
@@ -38,16 +42,15 @@
             </div>
         </div>
         <div class="container">
-            <div class="well well-sm sitefont">
-                @Html.HiddenFor(m => m.Item.Id)
+            <div class="well well-lg sitefont" style="height: 485px">
                 @Html.HiddenFor(m => m.Item.Photo)
                 @Html.ValidationSummary(true)
-                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                     <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
                         <div class="text-left">
                             @Html.Label("Select Photo")
-                            @Html.TextBoxFor(m => m.Item.ImageUpload, new { @type = "file", @id = "itemimg", accept = "image/*" })
-                            @Html.ValidationMessageFor(m=>m.Item.ImageUpload, "", new { @class = "color-red" })
+                            @Html.TextBoxFor(m => m.Item.ImageUpload, new { @type = "file", @id = "itemimg" })
+                            @Html.ValidationMessageFor(m => m.Item.ImageUpload, "", new { @class = "color-red" })
                             <br />
                         </div>
 
@@ -110,4 +113,49 @@
             </div>
         </div>
     </div>
+}
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            $("#itemimg").change(function () {
+                var content = $("#itemimg").val();
+                var contentType = content.substr(content.indexOf(".") + 1);
+                switch (contentType) {
+                    case 'gif':
+                    case 'jpg':
+                    case 'jpeg':
+                    case 'png':
+                    case 'tif':
+                    case 'bmp':
+                    case 'GIF':
+                    case 'JPG':
+                    case 'JPEG':
+                    case 'PNG':
+                    case 'TIF':
+                    case 'BMP':
+
+                        break;
+                    default:
+                        {
+                            document.getElementById("fileError").innerHTML = "File format not supported.!";
+                        }
+                }
+
+            });
+
+            function readPictureURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imgpreview').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#itemimg").change(function () {
+                readPictureURL(this);
+            });
+        });
+    </script>
 }
