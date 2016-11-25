@@ -42,16 +42,16 @@
         </div>
         <!-- ./ first active div-->
         @*<div class="item">
-            <div class="container">
-                <div class="carousel-content">
-                    <h1>Grap Now or Never</h1>
-                    <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien.<br>
-                        <a href="#" class="btn btn-primary btn-lg margin-top-20">Download Now</a>
-                    </p>
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1>Grap Now or Never</h1>
+                        <p class="lead">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien.<br>
+                            <a href="#" class="btn btn-primary btn-lg margin-top-20">Download Now</a>
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
         <!-- ./ Second div-->
     </div>
     <a class="prev" href="#slide-head" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -102,7 +102,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                <div class="col-md-3 col-sm-6" data-scrollreveal="enter top and move 100px, wait 0.6s">
                     <div class="text-center">
                         <p>
                             <img class="img-responsive img-thumbnail img-circle" src="~/Images/team/team1.png" alt="" />
@@ -147,7 +147,7 @@
             </div>
             <!-- ./ Heading div-->
 
-            <div class="col-md-10 col-md-offset-1 col-sm-12" data-scrollreveal="enter right and move 100px, wait 0.6s">
+            <div class="col-md-10 col-md-offset-1 col-sm-offset-1 col-sm-10 col-xs-10 col-xs-offset-1" data-scrollreveal="enter right and move 100px, wait 0.6s">
                 <ul class="portfolio-items">
 
                     @foreach (var item in Model.Items)
@@ -157,12 +157,12 @@
                                 <div class="portfolio-image">
                                     <img src="@Url.Content(item.Photo)" alt="Loading Image" style="width: 240px; height: 245px" />
                                     <div class="overlay">
-                                        <a class="preview btn btn-primary" title="@item.Name" href="@Url.Content(item.Photo)"><i class="fa fa-eye"></i></a>
+                                        <a class="preview btn btn-primary" title="@item.Description" href="@Url.Content(item.Photo)"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
-                                @if (item.Description != null)
+                                @if (item.Price != null)
                                 {
-                                    <h5>@item.Description</h5>
+                                    <h5>@item.Price</h5>
                                 }
                                 else
                                 {
@@ -191,14 +191,13 @@
                 </div>
             </div>
             <!-- ./ Heading div-->
-            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
                     <div class="text-center">
                         <i class="fa fa-bolt icon-round bk-color-red"></i>
-                        <h4>Responsive Design</h4>
+                        <h4>Home delivery</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien. Aliquam erat volutpat.
-                            Quisque eu ante at tortor imperdiet gravida nec sed turpis. Phasellus augue augue.
+                            We serve you at your place, select your product, and contact us. We bring your product within a day.
                         </p>
                     </div>
                 </div>
@@ -328,7 +327,7 @@
             <!-- ./ Content div-->
         </div>
 
-        <div class="map fa fa-border" style="width: 100%;height: 60%">
+        <div class="map fa fa-border" style="width: 100%; height: 60%">
             <iframe style="width: 100%; height: 70%" scrolling="no" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br>
             <small>
                 <a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color: #1ABC9C; text-align: left; font-size: 13px">View Larger Map</a>
@@ -336,3 +335,12 @@
         </div>
     </div>
 </section>
+@section Scripts{
+    <script type="text/javascript">
+        $(".navbar-collapse > ul > li > a").on('click', function () {
+            if (window.innerWidth < 480) {
+                $('.navbar-collapse').collapse('toggle');
+            }
+        });
+    </script>
+}

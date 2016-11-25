@@ -3,7 +3,7 @@
 <header id="header-nav" role="banner">
     <div id="navbar" class="navbar navbar-default">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
                 <img src="~/Images/base/logo.png" style="height: 26px" /> <span>MY THEME</span>
             </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,72 +37,75 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="well well-lg sitefont" style="height: 490px">
+                @Html.HiddenFor(m => m.Item.Id)
+                @Html.HiddenFor(m => m.Item.Photo)
+                @Html.ValidationSummary(true)
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                        <div class="text-left">
+                            <label class="btn btn-default btn-file">
+                                Select picture
+                                @Html.TextBoxFor(m => m.Item.ImageUpload, new { @type = "file", @id = "itemimg" })
+                            </label>
+                            <img src="@Url.Content(Model.Item.Photo)" height="40" width="40" id="imgpreview" class="img-thumbnail">
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                        <div class="text-left">
+                            @Html.LabelFor(m => m.Item.Name)
+                            @Html.TextBoxFor(m => m.Item.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Item.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                        <div class="text-left">
+                            @Html.LabelFor(m => m.Item.Price)
+                            @Html.TextBoxFor(m => m.Item.Price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Item.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                        <div class="text-left">
+                            @Html.LabelFor(m => m.Item.Category)
+                            @Html.TextBoxFor(m => m.Item.Category, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                        <div class="text-left">
+                            @Html.LabelFor(m => m.Item.Discount)
+                            @Html.TextBoxFor(m => m.Item.Discount, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                        <div class="text-left">
+                            @Html.LabelFor(m => m.Item.Description)
+                            @Html.TextAreaFor(m => m.Item.Description, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
 
-        @Html.HiddenFor(m => m.Item.Id)
-        @Html.HiddenFor(m => m.Item.Photo)
-        @Html.ValidationSummary(true)
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
-                <div class="text-left">
-
-                    @Html.Label("Select Photo")
-                    @Html.TextBoxFor(m => m.Item.ImageUpload, new { @type = "file", @id = "itemimg", style = "display: inline-block" })
-                    <img src="@Url.Content(Model.Item.Photo)" height="40" width="40" id="imgpreview" class="img-thumbnail">
-                    <br />
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
-                <div class="text-left">
-                    @Html.LabelFor(m => m.Item.Name)
-                    @Html.TextBoxFor(m => m.Item.Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Item.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
-                <div class="text-left">
-                    @Html.LabelFor(m => m.Item.Price)
-                    @Html.TextBoxFor(m => m.Item.Price, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Item.Price, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
-                <div class="text-left">
-                    @Html.LabelFor(m => m.Item.Category)
-                    @Html.TextBoxFor(m => m.Item.Category, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
-                <div class="text-left">
-                    @Html.LabelFor(m => m.Item.Discount)
-                    @Html.TextBoxFor(m => m.Item.Discount, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
-                <div class="text-left">
-                    @Html.LabelFor(m => m.Item.Description)
-                    @Html.TextAreaFor(m => m.Item.Description, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-            <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
-
-                <div class="pull-right">
-                    <button type="submit" class="btn btn-info" style="margin-top: 17px">Update</button>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-info" style="margin-top: 17px">Update</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
