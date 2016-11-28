@@ -68,14 +68,14 @@
                     <p class="lead">
                         Luqman Traders one of the prestigious and renowned Trading Company in Pakistan. Founded in 1958 as a family business,
                         we have developed a reputation for excellent service and a depth of seating-comfort knowledge that just can’t be surpassed.
-                        Over the years we’ve got to know what makes a good chair and have worked closely with designers and upholsterers to supply what 
+                        Over the years we’ve got to know what makes a good chair and have worked closely with designers and upholsterers to supply what
                         you will find to be the largest range of chairs in the North East. Under the Supervision of Mr. Rahat malik,
                         The Proprietor of the firm, The Company is in action and being known as one of the top class Trading Company in the region from last two decades.
                         Two wings of Luqman Traders are busy in entertaining and satisfying their customers by doing there jobs in highly professional manners.
                         These two wings are even full in Import, Export Local Manufacturing and Domestic Industrial Supply.
 
                         Sole Distributors:
-                        LUQMAN TRADERS has good business relation with the out of city supplier and these relation have been strengthen by signing the contracts with the suppliers 
+                        LUQMAN TRADERS has good business relation with the out of city supplier and these relation have been strengthen by signing the contracts with the suppliers
                         as their SOLE AGENTS for the territory of Pakistan,
                         This act helped both buyer and seller to work together as a combined unit for the prosperity of a mutual beneficial trade.
                     </p>
@@ -161,7 +161,7 @@
                                 <div class="portfolio-image">
                                     <img src="@Url.Content(item.Photo)" alt="Loading Image" style="width: 240px; height: 245px" />
                                     <div class="overlay">
-                                        <a class="preview btn btn-primary" title="@item.Description" href="@Url.Content(item.Photo)"><i class="fa fa-eye"></i></a>
+                                        <a class="preview btn btn-primary" title="@item.Description" href="@Url.Content(item.Photo)" rel="prettyPhoto[gallery1]"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
                                 @if (item.Price != null)
@@ -283,29 +283,29 @@
                     <hr />
                     @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
-                        <div class="row">
-                            <div class="col-md-5 col-sm-5 margin-5">
-                                <div class="form-group">
-                                    @Html.TextBoxFor(m => m.MailModel.Name, new { @class = "form-control", required = "required", placeholder = "Name" })
-                                </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 margin-5">
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.MailModel.Name, new { @class = "form-control", required = "required", placeholder = "Name" })
                             </div>
+                        </div>
 
-                            <div class="col-md-5 col-sm-5 margin-5">
-                                <div class="form-group">
-                                    @Html.TextBoxFor(m => m.MailModel.From, new { @class = "form-control", type = "email", required = "required", placeholder = "Email Address" })
-                                </div>
+                        <div class="col-md-5 col-sm-5 margin-5">
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.MailModel.From, new { @class = "form-control", type = "email", required = "required", placeholder = "Email Address" })
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    @Html.TextAreaFor(m => m.MailModel.Body, new { @class = "form-control", required = "required", placeholder = "Message" })
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg">Submit Query</button>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                @Html.TextAreaFor(m => m.MailModel.Body, new { @class = "form-control", required = "required", placeholder = "Message" })
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit Query</button>
                             </div>
                         </div>
+                    </div>
                     }
                 </div>
                 <div class="col-md-4 col-sm-12" data-scrollreveal="enter right and move 100px, wait 0.6s">
@@ -341,6 +341,16 @@
 </section>
 @section Scripts{
     <script type="text/javascript">
+        ////charset="utf-8"
+        //  $(document).ready(function(){
+        //      $("a[rel^='prettyPhoto']").prettyPhoto({
+        //          social_tools: '',
+        //          theme: 'facebook',
+        //          slideshow: 5000,
+        //          autoplay_slideshow: true
+        //      });
+        //  });
+
         $(".navbar-collapse > ul > li > a").on('click', function () {
             if (window.innerWidth < 480) {
                 $('.navbar-collapse').collapse('toggle');

@@ -5,18 +5,18 @@
 .iconright {
     position: relative !important;
     top: -25px !important;
-    margin-left: 235px !important;
+    margin-left: 235px;
 }
 
 .navbar-default .navbar-admin > li > a {
     color: #777777;
 }
 
-.navbar-default .navbar-admin > li > a:hover,
-.navbar-default .navbar-admin > li > a:focus {
-    color: #333333;
-    background-color: transparent;
-}
+    .navbar-default .navbar-admin > li > a:hover,
+    .navbar-default .navbar-admin > li > a:focus {
+        color: #333333;
+        background-color: transparent;
+    }
 
 .navbar-default .navbar-admin > .active > a,
 .navbar-default .navbar-admin > .active > a:hover,
@@ -40,12 +40,12 @@
     margin: 7.5px -15px;
 }
 
-.navbar-admin > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 20px;
-    color: white !important;
-}
+    .navbar-admin > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        line-height: 20px;
+        color: white !important;
+    }
 
 .btn-file {
     position: relative;
@@ -53,21 +53,21 @@
     margin-right: 106px;
 }
 
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
-}
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
 
 body {
     overflow-x: hidden;
@@ -78,12 +78,46 @@ body {
     margin-left: 8.333333333333332%;
 }
 
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
+    vertical-align: baseline !important;
+}
+
 @media only screen and (max-device-width: 480px) {
     #slide-head h1 {
         font-size: 45px;
         text-shadow: 0 3px rgba(0, 0, 0, 0.1);
         color: #fff;
     }
+
+    .navbar-default .navbar-brand {
+        margin-left: 2px;
+        margin-right: 50px;
+        height: 56px;
+        font-size: 20px;
+        font-weight: 900;
+        color: #FFFFFF;
+    }
+
+    tbody > tr > td.text-right {
+        display: flex;
+    }
+    .iconright {
+        margin-left: 200px;
+    }
+    #tableSearch {
+        width: 225px;
+    }
+
+    .pp_pic_holder.pp_default { width: 100%!important; left: 0!important; overflow: hidden; }
+    div.pp_default .pp_content_container .pp_left { padding-left: 0!important; }
+    div.pp_default .pp_content_container .pp_right { padding-right: 0!important; }
+    .pp_content { width: 100%!important; height: auto!important; }
+    .pp_fade { width: 100%!important; height: 100%!important; }
+    a.pp_expand, a.pp_contract, .pp_hoverContainer, .pp_gallery, .pp_top, .pp_bottom { display: none!important; }
+    #pp_full_res img { width: 100%!important; height: auto!important; }
+    .pp_details { width: 100%!important; padding-left: 3%; padding-right: 4%; padding-top: 10px; padding-bottom: 10px; background-color: #fff; margin-top: -2px!important; }
+    a.pp_close { right: 7%!important; top: 10px!important; }
+
 }
 
 @media only screen and (device-width: 320px) {
@@ -91,11 +125,17 @@ body {
         margin-left: -1.5%;
     }
 }
+
 #logo {
     -webkit-animation: rotation 2s infinite linear;
 }
 
 @-webkit-keyframes rotation {
-    from {-webkit-transform: rotate(0deg);}
-    to   {-webkit-transform: rotate(359deg);}
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }

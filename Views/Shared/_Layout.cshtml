@@ -9,12 +9,13 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
-    <link rel="shortcut icon" type="image/png" class="fa fa-certificate">
+    <link rel="shortcut icon" class="fa fa-certificate">
     <title>LUQMAN TRADERS</title>
     <!--GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!--BOOTSTRAP MAIN STYLES -->
     @Styles.Render("~/Content/css/baseCSS")
+    @Styles.Render("~/Content/css/prettyCSS")
     @Styles.Render("~/Content/DataTables");
 </head>
 <body>
@@ -36,7 +37,7 @@
     @Scripts.Render("~/Script/js/jquery")
     @Scripts.Render("~/Script/js/baseJS")
     @Scripts.Render("~/Script/jqueryvalidate")
-
+    @Scripts.Render("~/Script/js/prettyJS")
     
     @Scripts.Render("~/Scripts/DataTables")
     @RenderSection("scripts", false)
