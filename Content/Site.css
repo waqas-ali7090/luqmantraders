@@ -139,3 +139,10 @@ body {
         -webkit-transform: rotate(360deg);
     }
 }
+
+.offline-ui.offline-ui-down.offline-ui-connecting, .offline-ui.offline-ui-down.offline-ui-waiting {
+    top: 65px !important;
+}
+.offline-ui.offline-ui-up {
+    top: 65px !important;
+}
