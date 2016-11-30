@@ -34,47 +34,48 @@
                 <div class="carousel-content">
                     <h1>We are professionals</h1>
                     <p class="lead">
-                        See our product and services, and grab your product right now.<br>
-                        <a href="#portfolio-section" class="btn btn-success btn-lg margin-top-20">Get This Awesome</a>
+                        To be the world's best manufacturer & seller of steel furniture.<br>
+                        <a href="#portfolio-section" class="btn btn-success btn-lg margin-top-20">See This Awesome</a>
                     </p>
                 </div>
             </div>
         </div>
         <!-- ./ first active div-->
-        @*<div class="item">
-                <div class="container">
-                    <div class="carousel-content">
-                        <h1>Grap Now or Never</h1>
-                        <p class="lead">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec enim sapien.<br>
-                            <a href="#" class="btn btn-primary btn-lg margin-top-20">Download Now</a>
-                        </p>
-                    </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-content">
+                    <h1>Grap Now or Never</h1>
+                    <p class="lead">
+                        See our product and services, and grab the product right now.<br>
+                        <a href="#contact-section" class="btn btn-primary btn-lg margin-top-20">Contact us</a>
+                    </p>
                 </div>
-            </div>*@
+            </div>
+        </div>
         <!-- ./ Second div-->
     </div>
     <a class="prev" href="#slide-head" data-slide="prev"><i class="fa fa-angle-left"></i></a>
     <a class="next" href="#slide-head" data-slide="next"><i class="fa fa-angle-right"></i></a>
 </section>
 <!--END SLIDE CAROUSEL SECTION -->
+
 <!--ABOUT SECTION -->
 <section id="about-section">
     <div class="wrap-pad">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
                 <div class="text-center">
-                    <h1><i class="fa fa-wrench small-icons bk-color-brown"></i>Meet Team</h1>
-                    <p class="lead">
-                        Luqman Traders one of the prestigious and renowned Trading Company in Pakistan. Founded in 1958 as a family business,
+                    <h1><i class="fa fa-users small-icons bk-color-brown"></i>Meet Team</h1>
+                    <p class="lead text-left" style="font-size: 17px">
+                        LUQMAN TRADERS one of the prestigious and renowned Trading Company in Pakistan. Founded in 1988 as a family bussiness,
                         we have developed a reputation for excellent service and a depth of seating-comfort knowledge that just can’t be surpassed.
                         Over the years we’ve got to know what makes a good chair and have worked closely with designers and upholsterers to supply what
                         you will find to be the largest range of chairs in the North East. Under the Supervision of Mr. Rahat malik,
                         The Proprietor of the firm, The Company is in action and being known as one of the top class Trading Company in the region from last two decades.
-                        Two wings of Luqman Traders are busy in entertaining and satisfying their customers by doing there jobs in highly professional manners.
+                        Two wings of LUQMAN TRADERS are busy in entertaining and satisfying their customers by doing there jobs in highly professional manners.
                         These two wings are even full in Import, Export Local Manufacturing and Domestic Industrial Supply.
-
-                        Sole Distributors:
+                        <br/>
+                        <strong>Sole Distributors:</strong>
                         LUQMAN TRADERS has good business relation with the out of city supplier and these relation have been strengthen by signing the contracts with the suppliers
                         as their SOLE AGENTS for the territory of Pakistan,
                         This act helped both buyer and seller to work together as a combined unit for the prosperity of a mutual beneficial trade.
@@ -164,14 +165,6 @@
                                         <a class="preview btn btn-primary" title="@item.Description" href="@Url.Content(item.Photo)" rel="prettyPhoto[gallery1]"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
-                                @if (item.Price != null)
-                                {
-                                    <h5>@item.Price</h5>
-                                }
-                                else
-                                {
-                                    <span></span>
-                                }
                             </div>
                         </li>
                     }
@@ -315,7 +308,8 @@
                         </h3>
                         <hr />
                         17- Mcleod road behind ashraf plaza Lahore.<br />
-                        Call: 042-37357593<br />
+                        Phone: 042-37357593<br />
+                        Mobile: 0305-4519798<br />
                         Email: luqmantrader@hotmail.com<br />
                     </div>
                     <div class="col-md-12 col-sm-6">
@@ -341,16 +335,6 @@
 </section>
 @section Scripts{
     <script type="text/javascript">
-        ////charset="utf-8"
-        //  $(document).ready(function(){
-        //      $("a[rel^='prettyPhoto']").prettyPhoto({
-        //          social_tools: '',
-        //          theme: 'facebook',
-        //          slideshow: 5000,
-        //          autoplay_slideshow: true
-        //      });
-        //  });
-
         $(".navbar-collapse > ul > li > a").on('click', function () {
             if (window.innerWidth < 480) {
                 $('.navbar-collapse').collapse('toggle');
