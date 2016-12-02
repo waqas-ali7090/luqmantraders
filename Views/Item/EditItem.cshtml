@@ -23,14 +23,20 @@
 <br />
 <br />
 <br />
-<br />
 
 @using (@Html.BeginForm("EditItem", "Item", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.5s">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.4s">
                 <div class="text-center">
+                    @{if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
+                            </div>
+                        }
+                    }
                     <h1>
                         <i class="fa fa-user small-icons bk-color-black"></i>Edit Item
                     </h1>
@@ -43,7 +49,7 @@
                 @Html.HiddenFor(m => m.Item.Photo)
                 @Html.ValidationSummary(true)
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.4s">
                         <div class="text-left">
                             <label class="btn btn-default btn-file">
                                 Select picture
@@ -55,25 +61,25 @@
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <div class="text-left">
                             @Html.LabelFor(m => m.Item.Name)
                             @Html.TextBoxFor(m => m.Item.Name, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Item.Name, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.Item.Name, "", new { @class = "color-red" })
                         </div>
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.4s">
                         <div class="text-left">
                             @Html.LabelFor(m => m.Item.Price)
                             @Html.TextBoxFor(m => m.Item.Price, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Item.Price, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.Item.Price, "", new { @class = "color-red" })
                         </div>
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <div class="text-left">
                             @Html.LabelFor(m => m.Item.Category)
                             @Html.TextBoxFor(m => m.Item.Category, new { @class = "form-control" })
@@ -81,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.4s">
                         <div class="text-left">
                             @Html.LabelFor(m => m.Item.Discount)
                             @Html.TextBoxFor(m => m.Item.Discount, new { @class = "form-control" })
@@ -89,10 +95,11 @@
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <div class="text-left">
                             @Html.LabelFor(m => m.Item.Description)
                             @Html.TextAreaFor(m => m.Item.Description, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Item.Price, "", new { @class = "color-red" })
                         </div>
                     </div>
                 </div>
@@ -100,7 +107,7 @@
                 <br />
                 <br />
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
-                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                    <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.4s">
 
                         <div class="pull-right">
                             <button type="submit" class="btn btn-info" style="margin-top: 17px">Update</button>
@@ -111,7 +118,6 @@
         </div>
     </div>
 }
-
 
 @section scripts{
     <script>

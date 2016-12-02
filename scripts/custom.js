@@ -48,7 +48,7 @@ jQuery(function ($) {
 
 
     /*==========================================
-            WRITE  YOUR  SCRIPTS BELOW
+            Offline JS
       ==========================================*/
     Offline.options = {
         checks: {
@@ -58,8 +58,20 @@ jQuery(function ($) {
         }
     };
     var run = function () {
-        if (Offline.state === 'up')
+        if (Offline.state === 'up') {
             Offline.check();
+            //console.clear();
+        }
     }
     setInterval(run, 1000);
+
+    /*==========================================
+            Close alert
+      ==========================================*/
+
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 4000);
 });

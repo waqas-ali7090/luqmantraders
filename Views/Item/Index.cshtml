@@ -1,5 +1,4 @@
-﻿
-@model RahatWebApplication.ViewModels.ItemViewModel
+﻿@model RahatWebApplication.ViewModels.ItemViewModel
 
 <header id="header-nav" role="banner">
     <div id="navbar" class="navbar navbar-default">
@@ -29,6 +28,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.5s">
             <div class="text-center">
+                @{
+                    if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
+                        </div>
+                    }
+                }
                 <h1>
                     <i class="fa fa-star small-icons bk-color-black"></i>Products
                 </h1>
@@ -50,7 +57,7 @@
                     <table id='items' class="table table-hover table-responsive dataTable dt-responsive">
                         <thead>
                             <tr>
-                                
+
                                 <th>
                                     <strong>Image</strong>
                                 </th>
@@ -61,11 +68,11 @@
                                     <strong>Price</strong>
                                 </th>
                                 @*<th>
-                                    <strong>Category</strong>
-                                </th>
-                                <th>
-                                    <strong>Discount</strong>
-                                </th>*@
+                                        <strong>Category</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Discount</strong>
+                                    </th>*@
 
                                 <th></th>
                             </tr>
@@ -74,15 +81,15 @@
                             @foreach (var item in Model.Items)
                             {
                                 <tr>
-                                    
+
                                     <td><img src="@Url.Content(item.Photo)" class="img-circle img-thumbnail" style="width: 35px; height: 35px" /></td>
                                     <td>@Html.DisplayFor(m => item.Name)</td>
                                     <td>@Html.DisplayFor(m => item.Price)</td>
                                     @*<td>@Html.DisplayFor(m => item.Category)</td>
-                                    <td>@Html.DisplayFor(m => item.Discount)</td>*@
+                                        <td>@Html.DisplayFor(m => item.Discount)</td>*@
                                     <td class="text-right">
-                                        <a href="@Url.Action("EditItem","Item",new { id = item.Id })" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                                        <a href="@Url.Action("DeleteItem","Item",new { id = item.Id })" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                                        <a title="Edit" href="@Url.Action("EditItem","Item",new { id = item.Id })" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                                        <a title="Delete" href="@Url.Action("DeleteItem","Item",new { id = item.Id })" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                     </td>
                                 </tr>
                             }
@@ -118,5 +125,6 @@
                 }
             });
         }).keyup();
+
     </script>
 }
