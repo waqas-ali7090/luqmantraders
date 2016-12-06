@@ -109,8 +109,10 @@ body {
     #tableSearch {
         width: 225px;
     }
-
-    .pp_pic_holder.pp_default {
+    .margintop-96 {
+        margin-top: -96px;
+    }
+    /*.pp_pic_holder.pp_default {
         width: 100% !important;
         left: 0 !important;
         overflow: hidden;
@@ -156,7 +158,7 @@ body {
     a.pp_close {
         right: 7% !important;
         top: 10px !important;
-    }
+    }*/
 }
 
 @media only screen and (device-width: 320px) {
@@ -177,16 +179,4 @@ body {
     to {
         -webkit-transform: rotate(360deg);
     }
-}
-
-.offline-ui.offline-ui-down.offline-ui-connecting:after, .offline-ui.offline-ui-down.offline-ui-waiting:after {
-    top: 65px !important;
-}
-
-.offline-ui {
-    top: 65px !important;
-}
-
-.offline-ui .offline-ui-retry {
-    top: 65px !important;
 }
