@@ -81,8 +81,9 @@
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
                     <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <div class="text-left">
-                            @Html.LabelFor(m => m.Item.Category)
-                            @Html.TextBoxFor(m => m.Item.Category, new { @class = "form-control" })
+                            @Html.Label("Item Category")
+                            @Html.DropDownListFor(m => m.Item.CategoryId, new SelectList(Model.ItemCategories, "Id", "Name"), "Select Item Category", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Item.CategoryId, "", new { @class = "color-red" })
                         </div>
                     </div>
                 </div>

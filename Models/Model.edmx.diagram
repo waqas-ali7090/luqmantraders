@@ -7,6 +7,8 @@
       <Diagram DiagramId="2c744e0982624a95950f1c939b031ba9" Name="Diagram1">
         <EntityTypeShape EntityType="RahatDBModel.Item" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RahatDBModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RahatDBModel.ItemCategory" Width="1.5" PointX="0.75" PointY="5.25" />
+        <AssociationConnector Association="RahatDBModel.FK_Item_ItemCategory" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -37,9 +37,9 @@
                     @{
                         if (TempData["Message"] != null)
                         {
-                            <div class="alert alert-danger alert-dismissable">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
-                            </div>
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>@TempData["Message"]
+                    </div>
                         }
                     }
                     <h1><i class="fa fa-star small-icons bk-color-black"></i>Add Product</h1>
@@ -55,7 +55,7 @@
                         <div class="text-left">
                             <label class="btn btn-default btn-file">
                                 Select picture
-                                @Html.TextBoxFor(m => m.Item.ImageUpload, new {@type = "file", @id = "itemimg"})
+                                @Html.TextBoxFor(m => m.Item.ImageUpload, new { @type = "file", @id = "itemimg" })
                             </label>
                             <img src="#" height="40" width="40" id="imgpreview" class="img-thumbnail">
                             @Html.ValidationMessageFor(m => m.Item.ImageUpload, "", new { @class = "color-red" })
@@ -84,11 +84,13 @@
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
                     <div class="col-md-4 col-sm-6" data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <div class="text-left">
-                            @Html.LabelFor(m => m.Item.Category)
-                            @Html.TextBoxFor(m => m.Item.Category, new { @class = "form-control" })
+                            @Html.Label("Item Category")
+                            @Html.DropDownListFor(m => m.Item.CategoryId, new SelectList(Model.ItemCategories, "Id", "Name"), "Select Item Category", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Item.CategoryId, "", new { @class = "color-red" })
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
                     <div class="col-md-4 col-sm-6" data-scrollreveal="enter left and move 100px, wait 0.4s">
                         <div class="text-left">
@@ -119,7 +121,7 @@
             </div>
         </div>
     </div>
-}
+                        }
 @section scripts{
     <script>
         $(document).ready(function () {
